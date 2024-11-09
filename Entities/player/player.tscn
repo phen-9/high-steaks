@@ -1,16 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://o5jbadcta5p"]
+[gd_scene load_steps=9 format=3 uid="uid://o5jbadcta5p"]
 
 [ext_resource type="Script" path="res://Entities/player/player.gd" id="1_6n2u6"]
 [ext_resource type="Texture2D" uid="uid://c2vfxxto5or8y" path="res://Assets/player-placeholder.png" id="2_y0y0c"]
+[ext_resource type="Script" path="res://Resources/state-machine.gd" id="3_h3ome"]
+[ext_resource type="Script" path="res://Entities/player/on_ground.gd" id="3_w6q5u"]
+[ext_resource type="Script" path="res://Resources/state.gd" id="4_kvww4"]
+[ext_resource type="Script" path="res://Entities/player/ground_jump.gd" id="5_kp2dy"]
+[ext_resource type="Script" path="res://Entities/player/in_air.gd" id="6_5cvxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6xt"]
 size = Vector2(14, 23)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6n2u6")
+jump_strength = 600
+hop_strength = 300
+side_jump_strength = 200
+ground_speed = 50
+air_speed = 100
+dash_decay = 30
+gravity = 30
+terminal_velocity = 1000
 
 [node name="PlaceholderSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_y0y0c")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rp6xt")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_h3ome")
+initial_state = NodePath("InAir")
+
+[node name="OnGround" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("3_w6q5u")
+player = NodePath("../..")
+
+[node name="GroundJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_kp2dy")
+player = NodePath("../..")
+
+[node name="InAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_5cvxa")
+player = NodePath("../..")
+
+[node name="OnWall" type="Node" parent="StateMachine"]
+script = ExtResource("4_kvww4")

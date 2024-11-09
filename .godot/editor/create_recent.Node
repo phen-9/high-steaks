@@ -1,4 +1,8 @@
-StaticBody2D
-ColorRect
 CollisionShape2D
+MeshInstance2D
+ColorRect
+StateMachine
+State
+Node2D
+StaticBody2D
 Area2D

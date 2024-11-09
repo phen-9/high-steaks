@@ -1,5 +1,8 @@
+res://Scenes/game.tscn
 res://Entities/player/player.tscn
-res://Entities/player/player.gd
 res://Resources/state-machine.gd
-res://Resources/velocity-component.gd
-res://Entities/player/on-ground.gd
+res://Entities/player/jump.gd
+res://Entities/player/in_air.gd
+res://Entities/player/player.gd
+res://Entities/player/on_ground.gd
+res://Entities/player/ground_jump.gd
