@@ -10,6 +10,7 @@ var is_saucy := false
 
 @export var ground_speed : int
 @export var air_speed : int
+@export var slide_speed : int
 @export var dash_decay : int
 @export var gravity : int
 @export var terminal_velocity : int

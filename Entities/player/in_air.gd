@@ -12,5 +12,8 @@ func Physics_Update(_delta: float):
 	
 	if(player.is_on_floor()):
 		Transitioned.emit(self,"onground")
+	
+	if(player.is_on_wall() && Input.is_action_pressed("hold_wall")):
+		Transitioned.emit(self,"onwall")
 	pass
 	

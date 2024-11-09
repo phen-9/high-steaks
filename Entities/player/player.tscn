@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c2vfxxto5or8y" path="res://Assets/player-placeholder.png" id="2_y0y0c"]
 [ext_resource type="Script" path="res://Resources/state-machine.gd" id="3_h3ome"]
 [ext_resource type="Script" path="res://Entities/player/on_ground.gd" id="3_w6q5u"]
-[ext_resource type="Script" path="res://Resources/state.gd" id="4_kvww4"]
 [ext_resource type="Script" path="res://Entities/player/ground_jump.gd" id="5_kp2dy"]
 [ext_resource type="Script" path="res://Entities/player/in_air.gd" id="6_5cvxa"]
+[ext_resource type="Script" path="res://Entities/player/on_wall.gd" id="7_m0b7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6xt"]
 size = Vector2(14, 23)
@@ -18,6 +18,7 @@ hop_strength = 300
 side_jump_strength = 200
 ground_speed = 50
 air_speed = 100
+slide_speed = 40
 dash_decay = 30
 gravity = 30
 terminal_velocity = 1000
@@ -36,13 +37,26 @@ initial_state = NodePath("InAir")
 script = ExtResource("3_w6q5u")
 player = NodePath("../..")
 
-[node name="GroundJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="GroundJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "label", "timer")]
 script = ExtResource("5_kp2dy")
 player = NodePath("../..")
+label = NodePath("../../JumpTime")
+timer = NodePath("../../JumpTimer")
 
 [node name="InAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_5cvxa")
 player = NodePath("../..")
 
-[node name="OnWall" type="Node" parent="StateMachine"]
-script = ExtResource("4_kvww4")
+[node name="OnWall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_m0b7x")
+player = NodePath("../..")
+
+[node name="JumpTime" type="Label" parent="."]
+offset_left = 13.0
+offset_top = -24.0
+offset_right = 53.0
+offset_bottom = -1.0
+
+[node name="JumpTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

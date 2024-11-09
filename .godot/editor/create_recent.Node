@@ -1,3 +1,5 @@
+Timer
+Label
 CollisionShape2D
 MeshInstance2D
 ColorRect

@@ -6,3 +6,4 @@ res://Entities/player/in_air.gd
 res://Entities/player/player.gd
 res://Entities/player/on_ground.gd
 res://Entities/player/ground_jump.gd
+res://Entities/player/on_wall.gd
