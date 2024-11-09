@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Entities/player/in_air.gd" id="6_5cvxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6xt"]
-size = Vector2(14, 23)
+size = Vector2(22, 26)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6n2u6")
@@ -26,6 +26,7 @@ terminal_velocity = 1000
 texture = ExtResource("2_y0y0c")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rp6xt")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
