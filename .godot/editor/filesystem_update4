@@ -1,0 +1,5 @@
+res://Entities/player/player.tscn
+res://Entities/player/player.gd
+res://Resources/state-machine.gd
+res://Resources/velocity-component.gd
+res://Entities/player/on-ground.gd
