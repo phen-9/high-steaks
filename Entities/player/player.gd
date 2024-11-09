@@ -4,6 +4,7 @@ var move_direction : int
 var vertical_direction : int
 var is_saucy := false
 
+
 @export var jump_strength : int
 @export var hop_strength : int
 @export var side_jump_strength : int
@@ -17,6 +18,9 @@ var is_saucy := false
 
 var input_velocity : Vector2
 var instant_velocity : Vector2
+
+@export var label : Label
+@export var state_machine : StateMachine
 
 func _ready() -> void:
 	
@@ -36,3 +40,10 @@ func _physics_process(delta: float) -> void:
 func reset_velocity():
 	input_velocity = Vector2(0,0)
 	instant_velocity = Vector2(0,0)
+
+func die():
+	queue_free()
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if(area.has_method("endgame_yourself")):
+		die()

@@ -1,1 +1,8 @@
+res://Entities/player/player.tscn
 res://Scenes/game.tscn
+res://addons/godot-git-plugin/THIRDPARTY.md
+res://Entities/player/ground_jump.gd
+res://Entities/player/player.gd
+res://Resources/state-machine.gd
+res://Resources/Hitbox.gd
+res://Scenes/hitbox.gd

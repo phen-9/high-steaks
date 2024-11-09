@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://o5jbadcta5p"]
+[gd_scene load_steps=11 format=3 uid="uid://o5jbadcta5p"]
 
 [ext_resource type="Script" path="res://Entities/player/player.gd" id="1_6n2u6"]
 [ext_resource type="Texture2D" uid="uid://c2vfxxto5or8y" path="res://Assets/player-placeholder.png" id="2_y0y0c"]
@@ -7,26 +7,31 @@
 [ext_resource type="Script" path="res://Entities/player/ground_jump.gd" id="5_kp2dy"]
 [ext_resource type="Script" path="res://Entities/player/in_air.gd" id="6_5cvxa"]
 [ext_resource type="Script" path="res://Entities/player/on_wall.gd" id="7_m0b7x"]
+[ext_resource type="AudioStream" uid="uid://3syisihumfdj" path="res://Assets/bonk.wav" id="8_foefe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6xt"]
 size = Vector2(22, 26)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgu4b"]
+size = Vector2(20, 22)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_6n2u6")
 jump_strength = 600
 hop_strength = 300
 side_jump_strength = 200
 ground_speed = 50
-air_speed = 100
+air_speed = 200
 slide_speed = 40
 dash_decay = 30
 gravity = 30
 terminal_velocity = 1000
+state_machine = NodePath("StateMachine")
 
 [node name="PlaceholderSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_y0y0c")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rp6xt")
 
@@ -38,11 +43,11 @@ initial_state = NodePath("InAir")
 script = ExtResource("3_w6q5u")
 player = NodePath("../..")
 
-[node name="GroundJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "label", "timer")]
+[node name="GroundJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "timer", "sounds")]
 script = ExtResource("5_kp2dy")
 player = NodePath("../..")
-label = NodePath("../../JumpTime")
 timer = NodePath("../../JumpTimer")
+sounds = NodePath("../../BonkSound")
 
 [node name="InAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_5cvxa")
@@ -52,7 +57,7 @@ player = NodePath("../..")
 script = ExtResource("7_m0b7x")
 player = NodePath("../..")
 
-[node name="JumpTime" type="Label" parent="."]
+[node name="State" type="Label" parent="."]
 offset_left = 13.0
 offset_top = -24.0
 offset_right = 53.0
@@ -61,3 +66,14 @@ offset_bottom = -1.0
 [node name="JumpTimer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="BonkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_foefe")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wgu4b")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -1,10 +1,12 @@
+CollisionShape2D
+Hitbox
+Area2D
+AudioStreamPlayer2D
 Timer
 Label
-CollisionShape2D
 MeshInstance2D
 ColorRect
 StateMachine
 State
 Node2D
 StaticBody2D
-Area2D
