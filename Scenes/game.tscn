@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dy3dwtgvovmgy"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_mk10q"]
-[ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
+[ext_resource type="Texture2D" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
@@ -56,6 +56,7 @@ sources/0 = SubResource("TileSetAtlasSource_xvl0l")
 
 [node name="Player" parent="." instance=ExtResource("1_mk10q")]
 position = Vector2(136, 301)
+slide_speed = 0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(111, 38)
