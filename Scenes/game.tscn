@@ -57,6 +57,8 @@ sources/0 = SubResource("TileSetAtlasSource_xvl0l")
 
 [node name="Player" parent="." instance=ExtResource("1_mk10q")]
 position = Vector2(136, 301)
+ground_speed = 200
+slide_speed = 0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(111, 38)
@@ -64,4 +66,7 @@ tile_map_data = PackedByteArray("AAD6/xYAAAABAAAAAAD7/xYAAAABAAAAAAD8/xYAAAABAAA
 tile_set = SubResource("TileSet_n8oak")
 
 [node name="wsauce" parent="." instance=ExtResource("4_uom42")]
-position = Vector2(211, 330)
+position = Vector2(390, 352)
+
+[node name="wsauce2" parent="." instance=ExtResource("4_uom42")]
+position = Vector2(63, 338)

@@ -16,13 +16,17 @@ var sauce_count := 0
 @export var gravity : int
 @export var terminal_velocity : int
 @export var sprite : Sprite2D
+@export var death_sound : AudioStream
+@export var sauce_sound : AudioStream
+@export var player_sfx : AudioStreamPlayer2D
 
 var input_velocity : Vector2
 var instant_velocity : Vector2
 
-var can_wall := true
+var wall_uses = 0
 
 func _ready() -> void:
+	randomize()
 	pass
 
 func _process(delta: float) -> void:
@@ -42,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = input_velocity.x + instant_velocity.x
 	velocity.y = input_velocity.y + instant_velocity.y
 	move_and_slide()
+	
 	
 
 func reset_velocity():

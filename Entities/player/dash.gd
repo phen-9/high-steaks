@@ -1,9 +1,17 @@
 extends State
 
 @export var player : CharacterBody2D
+
+@export var dash_sound : AudioStream
+@export var player_sfx : AudioStreamPlayer2D
+
 var x_velo
 var y_velo
+
 func Enter():
+	player_sfx.set_stream(dash_sound)
+	player_sfx.pitch_scale = 1
+	player_sfx.play()
 	player.sauce_count -= 1
 	player.reset_velocity()
 	x_velo = 1000

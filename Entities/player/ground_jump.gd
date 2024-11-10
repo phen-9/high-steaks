@@ -4,6 +4,7 @@ class_name GroundJump
 @export var player : CharacterBody2D
 @export var timer : Timer
 @export var sounds : AudioStreamPlayer2D
+@export var max_wall_uses : int
 
 func Enter():
 	timer.start(.2)
@@ -23,7 +24,7 @@ func Physics_Update(_delta : float):
 		player.reset_velocity()
 		sounds.play()
 		Transitioned.emit(self,"inair")
-	if(player.is_on_wall() && Input.is_action_pressed("hold_wall") && player.can_wall):
+	if(player.is_on_wall() && Input.is_action_pressed("hold_wall") && player.wall_uses < max_wall_uses):
 		Transitioned.emit(self,"onwall")
 	player.input_velocity.x = player.air_speed * player.move_direction
 	

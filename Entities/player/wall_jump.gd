@@ -6,7 +6,7 @@ class_name WallJump
 @export var sounds : AudioStreamPlayer2D
 
 func Enter():
-	player.can_wall = false
+	player.wall_uses += 1
 	timer.start(.2)
 	player.instant_velocity.y -= player.hop_strength
 	player.instant_velocity.x += player.side_jump_strength * player.get_wall_normal().x

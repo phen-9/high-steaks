@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://3syisihumfdj"
-path="res://.godot/imported/bonk.wav-92b78a142f6c916c467ee324b1dc9c8f.sample"
+uid="uid://cbl44pye00s0c"
+path="res://.godot/imported/Pause.wav-42702037adf4665dfe97af2329b73ae6.sample"
 
 [deps]
 
-source_file="res://Assets/bonk.wav"
-dest_files=["res://.godot/imported/bonk.wav-92b78a142f6c916c467ee324b1dc9c8f.sample"]
+source_file="res://Assets/Audio/Pause.wav"
+dest_files=["res://.godot/imported/Pause.wav-42702037adf4665dfe97af2329b73ae6.sample"]
 
 [params]
 

@@ -1,7 +1,11 @@
 res://Scenes/game.tscn
-res://Scenes/hitbox.gd
 res://Entities/player/player.tscn
 res://Entities/Sauce/wsauce.tscn
+res://default_bus_layout.tres
+res://Resources/random-audio-pitch.gd
+res://Entities/player/player.gd
+res://Entities/player/dash.gd
+res://Entities/player/on_ground.gd
+res://Entities/player/wall_jump.gd
+res://Entities/player/in_air.gd
 res://Entities/player/ground_jump.gd
-res://Entities/Sauce/wsauce.gd
-res://Entities/player/on_wall.gd
