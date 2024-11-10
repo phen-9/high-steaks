@@ -16,15 +16,19 @@ var sauce_count := 0
 @export var gravity : int
 @export var terminal_velocity : int
 @export var sprite : AnimatedSprite2D
+@export var player : CharacterBody2D
 
 @export var sauce_sfx : AudioStreamPlayer2D
+@export var death_sfx : AudioStreamPlayer2D
 
 var input_velocity : Vector2
 var instant_velocity : Vector2
+@onready var state_machine = $StateMachine
 
 var can_wall := true
 
 func _ready() -> void:
+	
 	pass
 
 func _process(delta: float) -> void:
@@ -32,11 +36,11 @@ func _process(delta: float) -> void:
 	vertical_direction = Input.get_axis("move_up","move_down")
 	if(move_direction != 0):
 		forward = move_direction
-	
-	if(forward < 0):
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
+	if(state_machine.current_state != $StateMachine/Dead):
+		if(forward < 0):
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
 	
 	
 
@@ -55,6 +59,5 @@ func add_sauce():
 	sauce_count += 1
 	
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if(area.has_method("endgame_yourself")):
+func _on_death_sfx_finished() -> void:
 		queue_free()

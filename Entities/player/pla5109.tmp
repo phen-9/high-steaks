@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://o5jbadcta5p"]
+[gd_scene load_steps=27 format=3 uid="uid://o5jbadcta5p"]
 
 [ext_resource type="Script" path="res://Entities/player/player.gd" id="1_6n2u6"]
 [ext_resource type="Texture2D" uid="uid://c3kp5xlu15ves" path="res://Assets/player.png" id="2_ij4to"]
-[ext_resource type="Script" path="res://Entities/player/state_machine.gd" id="3_75i5k"]
+[ext_resource type="Script" path="res://Resources/state-machine.gd" id="3_h3ome"]
 [ext_resource type="Script" path="res://Entities/player/on_ground.gd" id="3_w6q5u"]
 [ext_resource type="Script" path="res://Entities/player/ground_jump.gd" id="5_kp2dy"]
 [ext_resource type="AudioStream" uid="uid://dvd02ltvs0xjd" path="res://Assets/Sounds/Walk.wav" id="5_yrsh4"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://Entities/player/wall_jump.gd" id="8_mxrea"]
 [ext_resource type="Script" path="res://Entities/player/dash.gd" id="9_7px64"]
 [ext_resource type="AudioStream" uid="uid://b6w277t41b0v2" path="res://Assets/Sounds/Dash.wav" id="10_fvff2"]
-[ext_resource type="Script" path="res://Entities/player/dead.gd" id="10_gyw8m"]
 [ext_resource type="AudioStream" uid="uid://c13fu25u4hnqg" path="res://Assets/Sounds/Sauce.wav" id="13_l7pk6"]
 [ext_resource type="AudioStream" uid="uid://iyyhyxrjjvjb" path="res://Assets/Sounds/Jump.wav" id="14_o5taq"]
 [ext_resource type="AudioStream" uid="uid://dune0p62le0tw" path="res://Assets/Sounds/Slide.wav" id="15_j5al8"]
@@ -91,7 +90,7 @@ size = Vector2(22, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgu4b"]
 size = Vector2(15, 19)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "player", "sauce_sfx", "death_sfx") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "sauce_sfx", "death_sfx")]
 script = ExtResource("1_6n2u6")
 jump_strength = 600
 hop_strength = 300
@@ -103,7 +102,6 @@ dash_decay = 30
 gravity = 30
 terminal_velocity = 1000
 sprite = NodePath("Sprite")
-player = NodePath(".")
 sauce_sfx = NodePath("SauceSFX")
 death_sfx = NodePath("DeathSFX")
 
@@ -117,8 +115,9 @@ speed_scale = 2.0
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rp6xt")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_75i5k")
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_h3ome")
+initial_state = NodePath("InAir")
 
 [node name="OnGround" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "walk_sfx", "sfx_timer")]
 script = ExtResource("3_w6q5u")
@@ -158,9 +157,6 @@ script = ExtResource("9_7px64")
 player = NodePath("../..")
 dash_sfx = NodePath("../../DashSFX")
 bonk_sfx = NodePath("../../BonkSound")
-
-[node name="Dead" type="Node" parent="StateMachine"]
-script = ExtResource("10_gyw8m")
 
 [node name="State" type="Label" parent="."]
 offset_left = 13.0
@@ -207,5 +203,4 @@ pitch_scale = 1.62
 stream = ExtResource("16_qmvjn")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_entered" from="Hurtbox" to="StateMachine" method="_on_hurtbox_area_entered"]
 [connection signal="finished" from="DeathSFX" to="." method="_on_death_sfx_finished"]
