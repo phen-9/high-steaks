@@ -7,16 +7,20 @@ class_name GroundJump
 
 func Enter():
 	timer.start(.2)
+	player.sprite.animation = "jump"
+	player.sprite.frame = 0
+	player.sprite.pause()
 	player.instant_velocity.y -= player.hop_strength
 	player.instant_velocity.x += player.side_jump_strength * player.move_direction
 
 
 func Physics_Update(_delta : float):
+	player.sprite.frame = 1
+	player.sprite.pause
 	if(timer.time_left != 0 && Input.is_action_pressed("jump")):
 		player.instant_velocity.y -= 4 * timer.time_left
 		player.instant_velocity.x *= .8
 	else:
-		
 		Transitioned.emit(self,"inair")
 	
 	if(player.is_on_ceiling()):
