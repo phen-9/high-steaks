@@ -6,3 +6,5 @@ res://Entities/player/on_ground.gd
 res://Scenes/pause_menu.gd
 res://Scenes/pause_menu.tscn
 res://Entities/player/player.gd
+res://Scenes/level.tscn
+res://glob_vars.gd

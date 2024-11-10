@@ -36,6 +36,7 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	$Panel.visible = false
 	resume()
+	#GlobVars.musicProgress = $music.get_playback_position()   
 	get_tree().reload_current_scene()
 
 

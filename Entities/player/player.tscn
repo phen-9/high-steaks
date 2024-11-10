@@ -123,6 +123,7 @@ sfx_timer = NodePath("Timer")
 
 [node name="WalkSFX" type="AudioStreamPlayer2D" parent="StateMachine/OnGround"]
 stream = ExtResource("5_yrsh4")
+volume_db = 9.333
 
 [node name="Timer" type="Timer" parent="StateMachine/OnGround"]
 one_shot = true
