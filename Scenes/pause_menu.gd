@@ -1,5 +1,10 @@
 extends Control
 
+@export var pause_fx : AudioStream
+@export var resume_fx : AudioStream
+
+@export var menu_sfx : AudioStreamPlayer2D
+
 func _ready() -> void:
 	$Panel.visible = false
 
@@ -7,6 +12,8 @@ func resume():
 	get_tree().paused = false
 
 func pause():
+	menu_sfx.set_stream(pause_fx)
+	menu_sfx.play()
 	get_tree().paused = true
 
 func testEsc():
@@ -20,6 +27,8 @@ func testEsc():
 		print("Resumed")
 
 func _on_resume_pressed() -> void:
+	menu_sfx.set_stream(resume_fx)
+	menu_sfx.play()
 	resume()
 	$Panel.visible = false
 

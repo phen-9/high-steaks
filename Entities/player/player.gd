@@ -17,6 +17,8 @@ var sauce_count := 0
 @export var terminal_velocity : int
 @export var sprite : AnimatedSprite2D
 
+@export var sauce_sfx : AudioStreamPlayer2D
+
 var input_velocity : Vector2
 var instant_velocity : Vector2
 
@@ -49,6 +51,7 @@ func reset_velocity():
 	instant_velocity = Vector2(0,0)
 	
 func add_sauce():
+	sauce_sfx.play()
 	sauce_count += 1
 	
 

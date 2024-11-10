@@ -1,10 +1,14 @@
 extends State
 
 @export var player : CharacterBody2D
+@export var dash_sfx : AudioStreamPlayer2D
 const GHOST_PREFAB = preload("res://Entities/player/player_ghost.tscn")
+
 var x_velo
 var y_velo
 func Enter():
+	dash_sfx.pitch_scale = 1 + (float)(randi() % 101 - 50) / 100
+	dash_sfx.play()
 	player.sauce_count -= 1
 	player.reset_velocity()
 	x_velo = 1000
