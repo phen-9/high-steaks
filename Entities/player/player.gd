@@ -19,7 +19,7 @@ var sauce_count := 0
 @export var player : CharacterBody2D
 
 @export var sauce_sfx : AudioStreamPlayer2D
-@export var death_sfx : AudioStreamPlayer2D
+
 
 var input_velocity : Vector2
 var instant_velocity : Vector2
@@ -57,7 +57,3 @@ func reset_velocity():
 func add_sauce():
 	sauce_sfx.play()
 	sauce_count += 1
-	
-
-func _on_death_sfx_finished() -> void:
-		queue_free()

@@ -7,11 +7,11 @@ func _ready() -> void:
 	music.autoplay = false
 	add_child(music)
 	music.stream = song
-	#music.play(GlobVars.musicProgress)
+	music.play(GlobVars.musicProgress)
 	
 func _process(delta: float) -> void:
 	if(!music.playing):
 		pass
-		#music.play(0.0)
+		music.play(0.0)
 	musicProgress = music.get_playback_position()
 	pass

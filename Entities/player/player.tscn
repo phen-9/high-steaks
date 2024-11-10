@@ -91,7 +91,7 @@ size = Vector2(22, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgu4b"]
 size = Vector2(15, 19)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "player", "sauce_sfx", "death_sfx") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "player", "sauce_sfx") groups=["Player"]]
 script = ExtResource("1_6n2u6")
 jump_strength = 600
 hop_strength = 300
@@ -105,7 +105,6 @@ terminal_velocity = 1000
 sprite = NodePath("Sprite")
 player = NodePath(".")
 sauce_sfx = NodePath("SauceSFX")
-death_sfx = NodePath("DeathSFX")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_54kqt")
@@ -117,8 +116,9 @@ speed_scale = 2.0
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rp6xt")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_75i5k")
+initial_state = NodePath("InAir")
 
 [node name="OnGround" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "walk_sfx", "sfx_timer")]
 script = ExtResource("3_w6q5u")
@@ -159,8 +159,9 @@ player = NodePath("../..")
 dash_sfx = NodePath("../../DashSFX")
 bonk_sfx = NodePath("../../BonkSound")
 
-[node name="Dead" type="Node" parent="StateMachine"]
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("death_sfx")]
 script = ExtResource("10_gyw8m")
+death_sfx = NodePath("../../DeathSFX")
 
 [node name="State" type="Label" parent="."]
 offset_left = 13.0
