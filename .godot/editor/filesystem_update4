@@ -4,8 +4,3 @@ res://Scenes/pause_menu.tscn
 res://Scenes/game.tscn
 res://Scenes/level.tscn
 res://Entities/stove/stove.tscn
-res://Entities/stove/stove.gd
-res://glob_vars.gd
-res://Entities/player/player.gd
-res://Entities/player/state_machine.gd
-res://Entities/player/dead.gd
