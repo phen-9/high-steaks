@@ -1,9 +1,15 @@
 extends State
 
 @export var player : CharacterBody2D
+@export var dash_sfx : AudioStreamPlayer2D
+@export var bonk_sfx : AudioStreamPlayer2D
+const GHOST_PREFAB = preload("res://Entities/player/player_ghost.tscn")
+
 var x_velo
 var y_velo
 func Enter():
+	dash_sfx.pitch_scale = 1 + (float)(randi() % 101 - 50) / 100
+	dash_sfx.play()
 	player.sauce_count -= 1
 	player.reset_velocity()
 	x_velo = 1000
@@ -33,8 +39,16 @@ func Physics_Update(_delta : float):
 	y_velo /= 1.1
 	player.instant_velocity.x = x_velo
 	player.instant_velocity.y = y_velo
+	var ghost = GHOST_PREFAB.instantiate()
+	player.get_parent().add_child(ghost)
+	ghost.global_position = player.global_position
+	if(x_velo < 0):
+		ghost.flip_h = true
+	
 	if(abs(y_velo) < 200 && abs(x_velo) < 200):
 		Transitioned.emit(self,"inair")
+	if(player.is_on_ceiling()):
+		bonk_sfx.play()
 	if(player.is_on_wall() || player.is_on_floor() || player.is_on_ceiling()):
 		player.reset_velocity()
 		Transitioned.emit(self,"inair")

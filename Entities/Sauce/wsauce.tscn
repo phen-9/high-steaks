@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4ex8w10kfd5"]
+[gd_scene load_steps=9 format=3 uid="uid://b4ex8w10kfd5"]
 
 [ext_resource type="Script" path="res://Entities/Sauce/wsauce.gd" id="1_je565"]
 [ext_resource type="Texture2D" uid="uid://b32n3gbccqkjt" path="res://icon.svg" id="2_sk737"]
 [ext_resource type="Texture2D" uid="uid://c47o7dc3e1rxt" path="res://Assets/w-sauce.png" id="3_qfncg"]
+
+[sub_resource type="Curve" id="Curve_bie0a"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.510526, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m73j2"]
 atlas = ExtResource("3_qfncg")
@@ -36,8 +41,10 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qi3t"]
 
-[node name="wsauce" type="Area2D"]
+[node name="wsauce" type="Area2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_je565")
+timer = NodePath("Timer")
+curve = SubResource("Curve_bie0a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 0.500031)
@@ -47,6 +54,9 @@ animation = &"sauce"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1qi3t")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

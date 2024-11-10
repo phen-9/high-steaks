@@ -4,8 +4,10 @@ class_name WallJump
 @export var player : CharacterBody2D
 @export var timer : Timer
 @export var sounds : AudioStreamPlayer2D
+@export var jump_sfx : AudioStreamPlayer2D
 
 func Enter():
+	jump_sfx.play()
 	player.can_wall = false
 	timer.start(.2)
 	player.instant_velocity.y -= player.hop_strength

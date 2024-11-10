@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6eduomrd047l"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_f5oiq"]
+[ext_resource type="FontFile" uid="uid://bvl0k8ft23s8b" path="res://Assets/upheavtt.ttf" id="2_43tcr"]
+[ext_resource type="AudioStream" uid="uid://bm6sgh02vbou0" path="res://Assets/Sounds/Pause.wav" id="2_rb04u"]
+[ext_resource type="AudioStream" uid="uid://cfwjbksst18l3" path="res://Assets/Sounds/Resume.wav" id="3_i5bwr"]
+
+[node name="pause_menu" type="Control" node_paths=PackedStringArray("menu_sfx")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -478.0
+offset_top = -240.0
+offset_right = -478.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5oiq")
+pause_fx = ExtResource("2_rb04u")
+resume_fx = ExtResource("3_i5bwr")
+menu_sfx = NodePath("MenuSFX")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -124.0
+offset_right = 99.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxCocntainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxCocntainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_43tcr")
+theme_override_font_sizes/font_size = 60
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Panel/VBoxCocntainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_43tcr")
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Panel/VBoxCocntainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_43tcr")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Panel/VBoxCocntainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_43tcr")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="MenuSFX" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="Panel/VBoxCocntainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxCocntainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxCocntainer/Quit" to="." method="_on_quit_pressed"]

@@ -4,8 +4,10 @@ class_name GroundJump
 @export var player : CharacterBody2D
 @export var timer : Timer
 @export var sounds : AudioStreamPlayer2D
+@export var jump_sfx : AudioStreamPlayer2D
 
 func Enter():
+	jump_sfx.play()
 	timer.start(.2)
 	player.sprite.animation = "jump"
 	player.sprite.frame = 0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cni8c855hsskf"]
+
+[ext_resource type="Texture2D" uid="uid://c3kp5xlu15ves" path="res://Assets/player.png" id="1_fhn2x"]
+[ext_resource type="Script" path="res://player_ghost.gd" id="2_nt1df"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_724v3"]
+atlas = ExtResource("1_fhn2x")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmmmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_724v3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerGhost" type="AnimatedSprite2D"]
+modulate = Color(0.813258, 0.813258, 0.813257, 0.513726)
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_rmmmq")
+script = ExtResource("2_nt1df")
