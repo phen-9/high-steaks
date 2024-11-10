@@ -5,3 +5,6 @@ res://Scenes/game.tscn
 res://Entities/stove/stove.tscn
 res://Entities/stove/hitbox.tscn
 res://Entities/knife/knife.tscn
+res://Entities/stove/stove.gd
+res://Entities/knife/search.gd
+res://Entities/knife/knife.gd

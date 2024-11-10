@@ -2,7 +2,6 @@ extends AnimatableBody2D
 
 @onready var sprite = $Sprite
 @onready var timer = $Timer
-@onready var hitbox = $Hitbox
 const HITBOX_PREFAB = preload("res://Entities/stove/hitbox.tscn")
 
 @export var duration := 3
