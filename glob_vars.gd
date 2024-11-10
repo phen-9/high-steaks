@@ -4,12 +4,14 @@ var music = AudioStreamPlayer.new()
 var song : AudioStream = preload("res://Assets/Sounds/Platformer.ogg")
 
 func _ready() -> void:
+	music.autoplay = false
 	add_child(music)
 	music.stream = song
-	music.play(GlobVars.musicProgress)
+	#music.play(GlobVars.musicProgress)
 	
 func _process(delta: float) -> void:
 	if(!music.playing):
-		music.play(0.0)
+		pass
+		#music.play(0.0)
 	musicProgress = music.get_playback_position()
 	pass

@@ -1,9 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgby0w32rm260"]
+[gd_scene load_steps=14 format=3 uid="uid://dgby0w32rm260"]
 
 [ext_resource type="Script" path="res://Entities/stove/stove.gd" id="1_vqq2a"]
 [ext_resource type="Texture2D" uid="uid://dh2qyicp8j8j0" path="res://Assets/stomve.png" id="2_iu8dl"]
 [ext_resource type="AudioStream" uid="uid://bdai5dhm484sw" path="res://Assets/Sounds/Fwoosh.wav" id="3_hbn4x"]
 [ext_resource type="AudioStream" uid="uid://cw1l1laptddry" path="res://Assets/Sounds/Tick.wav" id="4_qxf78"]
+
+[sub_resource type="Curve" id="Curve_xopgk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ulpw1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 50), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_848ta"]
 size = Vector2(32, 13)
@@ -49,8 +57,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ray4j"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 75.56
+initial_velocity_max = 105.79
+gravity = Vector3(0, 98, 0)
+color = Color(1, 0.633333, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = -0.87
+
 [node name="Stove" type="AnimatableBody2D" node_paths=PackedStringArray("tick", "fwoosh")]
 script = ExtResource("1_vqq2a")
+tick_curve = SubResource("Curve_xopgk")
+particle_curve = SubResource("Curve_ulpw1")
 tick = NodePath("Tick")
 fwoosh = NodePath("Fwoosh")
 
@@ -72,6 +94,15 @@ volume_db = 24.0
 
 [node name="Fwoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hbn4x")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 33)
+amount = 20
+amount_ratio = 0.0
+process_material = SubResource("ParticleProcessMaterial_ray4j")
+lifetime = 0.2
+explosiveness = 1.0
+randomness = 0.15
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

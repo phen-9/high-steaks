@@ -8,3 +8,4 @@ res://Entities/knife/knife.tscn
 res://Entities/stove/stove.gd
 res://Entities/knife/search.gd
 res://Entities/knife/knife.gd
+res://glob_vars.gd

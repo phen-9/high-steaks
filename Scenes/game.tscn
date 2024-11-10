@@ -87,6 +87,7 @@ autoplay = true
 
 [node name="Stove" parent="." instance=ExtResource("6_8xbch")]
 position = Vector2(207, 350)
+sync_to_physics = false
 
 [node name="Knife" parent="." instance=ExtResource("7_vg3g6")]
 position = Vector2(75, 300)
