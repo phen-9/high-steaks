@@ -1,10 +1,5 @@
-res://Scenes/game.tscn
 res://Entities/player/player.tscn
 res://Entities/Sauce/wsauce.tscn
-res://Entities/player/dash.gd
-res://Entities/player/on_ground.gd
-res://Scenes/pause_menu.gd
 res://Scenes/pause_menu.tscn
-res://Entities/player/player.gd
+res://Scenes/game.tscn
 res://Scenes/level.tscn
-res://glob_vars.gd
