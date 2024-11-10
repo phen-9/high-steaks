@@ -13,6 +13,7 @@ size = Vector2(63.5, 4)
 size = Vector2(38, 2)
 
 [node name="Knife" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_oyfhx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,8 +31,9 @@ position = Vector2(13, 2)
 shape = SubResource("RectangleShape2D_6il8x")
 debug_color = Color(0.967938, 0, 0.471078, 0.42)
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_t3n3h")
+initial_state = NodePath("Search")
 
 [node name="Search" type="Node" parent="StateMachine"]
 script = ExtResource("5_i1ql4")

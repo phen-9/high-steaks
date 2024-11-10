@@ -82,6 +82,7 @@ offset_bottom = -5.0
 
 [node name="Stove" parent="." instance=ExtResource("6_8xbch")]
 position = Vector2(207, 350)
+sync_to_physics = false
 
 [node name="Knife" parent="." instance=ExtResource("7_vg3g6")]
 position = Vector2(75, 300)
@@ -89,5 +90,5 @@ position = Vector2(75, 300)
 [node name="Area2D" type="Area2D" parent="Knife"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife/Area2D"]
-position = Vector2(-12, 39.5)
+position = Vector2(-13, 43)
 shape = SubResource("RectangleShape2D_tis2p")
