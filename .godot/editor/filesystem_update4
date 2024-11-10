@@ -4,3 +4,6 @@ res://Scenes/pause_menu.tscn
 res://Scenes/game.tscn
 res://Scenes/level.tscn
 res://Entities/stove/stove.tscn
+res://Entities/Spike/spike.tscn
+res://Entities/Spike/spike.gd
+res://Entities/knife/knife.tscn
