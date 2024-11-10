@@ -1,4 +1,7 @@
 res://Scenes/game.tscn
+res://Scenes/hitbox.gd
 res://Entities/player/player.tscn
 res://Entities/Sauce/wsauce.tscn
-res://Entities/player/dash.gd
+res://Entities/player/ground_jump.gd
+res://Entities/Sauce/wsauce.gd
+res://Entities/player/on_wall.gd
