@@ -1,5 +1,4 @@
 res://Entities/player/player.tscn
-res://Entities/player/dash.gd
 res://Entities/Sauce/wsauce.tscn
 res://Scenes/game.tscn
 res://Scenes/pause_menu.tscn

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_mk10q"]
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
-[ext_resource type="PackedScene" uid="uid://dgy44i0f8wcka" path="res://Scenes/pause_menu.tscn" id="4_dlu6b"]
+[ext_resource type="PackedScene" uid="uid://byitfbptjta7" path="res://Scenes/pause_menu.tscn" id="4_dlu6b"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="4_uom42"]
-[ext_resource type="PackedScene" uid="uid://b26eyk1roihg8" path="res://Entities/player/player_ghost.tscn" id="5_akj7j"]
+[ext_resource type="PackedScene" uid="uid://cni8c855hsskf" path="res://Entities/player/player_ghost.tscn" id="5_akj7j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
