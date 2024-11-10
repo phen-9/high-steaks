@@ -60,7 +60,6 @@ script = ExtResource("5_kp2dy")
 player = NodePath("../..")
 timer = NodePath("../../JumpTimer")
 sounds = NodePath("../../BonkSound")
-max_wall_uses = 2
 
 [node name="InAir" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("6_5cvxa")
