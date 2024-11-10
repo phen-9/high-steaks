@@ -6,9 +6,11 @@ var y_velo
 func Enter():
 	player.sauce_count -= 1
 	player.reset_velocity()
-	x_velo = 1500
-	y_velo = 1500
-	var input_velo = abs(player.move_direction) + abs(player.vertical_direction)
+	x_velo = 1000
+	y_velo = 1000
+	var x_input = Input.get_axis("move_left","move_right")
+	var y_input = Input.get_axis("move_up","move_down")
+	var input_velo = abs(x_input) + abs(y_input)
 	
 	if(input_velo > 1):
 		x_velo *= player.move_direction * (sqrt(2)/2)
