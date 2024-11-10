@@ -1,14 +1,22 @@
 extends Area2D
 
 var is_active = true
+var x := 0
+var sprite_offset 
+@export var timer : Timer
+@export var curve : Curve
 @onready var sprite = $AnimatedSprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	sprite_offset = curve.sample(timer.time_left)
+	
+	sprite.position.y = sprite_offset
 	pass
 
 

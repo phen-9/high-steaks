@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dy3dwtgvovmgy"]
+[gd_scene load_steps=9 format=4 uid="uid://cwtog0osulc4s"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_mk10q"]
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
+[ext_resource type="PackedScene" uid="uid://dgy44i0f8wcka" path="res://Scenes/pause_menu.tscn" id="4_dlu6b"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="4_uom42"]
+[ext_resource type="PackedScene" uid="uid://b26eyk1roihg8" path="res://Entities/player/player_ghost.tscn" id="5_akj7j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
@@ -65,3 +67,14 @@ tile_set = SubResource("TileSet_n8oak")
 
 [node name="wsauce" parent="." instance=ExtResource("4_uom42")]
 position = Vector2(398, 353)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("4_dlu6b")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="PlayerGhost" parent="." instance=ExtResource("5_akj7j")]
+position = Vector2(242, 278)

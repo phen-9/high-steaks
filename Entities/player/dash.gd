@@ -1,6 +1,7 @@
 extends State
 
 @export var player : CharacterBody2D
+const GHOST_PREFAB = preload("res://Entities/player/player_ghost.tscn")
 var x_velo
 var y_velo
 func Enter():
@@ -33,6 +34,12 @@ func Physics_Update(_delta : float):
 	y_velo /= 1.1
 	player.instant_velocity.x = x_velo
 	player.instant_velocity.y = y_velo
+	var ghost = GHOST_PREFAB.instantiate()
+	player.get_parent().add_child(ghost)
+	ghost.global_position = player.global_position
+	if(x_velo < 0):
+		ghost.flip_h = true
+	
 	if(abs(y_velo) < 200 && abs(x_velo) < 200):
 		Transitioned.emit(self,"inair")
 	if(player.is_on_wall() || player.is_on_floor() || player.is_on_ceiling()):
