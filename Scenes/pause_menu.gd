@@ -9,6 +9,8 @@ func _ready() -> void:
 	$Panel.visible = false
 
 func resume():
+	menu_sfx.set_stream(resume_fx)
+	menu_sfx.play()
 	get_tree().paused = false
 
 func pause():
@@ -27,8 +29,6 @@ func testEsc():
 		print("Resumed")
 
 func _on_resume_pressed() -> void:
-	menu_sfx.set_stream(resume_fx)
-	menu_sfx.play()
 	resume()
 	$Panel.visible = false
 
@@ -36,6 +36,7 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	$Panel.visible = false
 	resume()
+	#GlobVars.musicProgress = $music.get_playback_position()   
 	get_tree().reload_current_scene()
 
 
