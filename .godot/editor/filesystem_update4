@@ -2,6 +2,6 @@ res://Entities/player/player.tscn
 res://Entities/Sauce/wsauce.tscn
 res://Scenes/pause_menu.tscn
 res://Scenes/game.tscn
+res://Scenes/level.tscn
 res://Entities/stove/stove.tscn
-res://Entities/stove/hitbox.tscn
-res://Entities/knife/knife.tscn
+res://Entities/stove/stove.gd

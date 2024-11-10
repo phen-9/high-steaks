@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgby0w32rm260"]
+[gd_scene load_steps=11 format=3 uid="uid://dgby0w32rm260"]
 
 [ext_resource type="Script" path="res://Entities/stove/stove.gd" id="1_vqq2a"]
 [ext_resource type="Texture2D" uid="uid://dh2qyicp8j8j0" path="res://Assets/stomve.png" id="2_iu8dl"]
+[ext_resource type="AudioStream" uid="uid://bdai5dhm484sw" path="res://Assets/Sounds/Fwoosh.wav" id="3_hbn4x"]
+[ext_resource type="AudioStream" uid="uid://cw1l1laptddry" path="res://Assets/Sounds/Tick.wav" id="4_qxf78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_848ta"]
 size = Vector2(32, 13)
@@ -47,8 +49,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Stove" type="AnimatableBody2D"]
+[node name="Stove" type="AnimatableBody2D" node_paths=PackedStringArray("tick", "fwoosh")]
 script = ExtResource("1_vqq2a")
+tick = NodePath("Tick")
+fwoosh = NodePath("Fwoosh")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 33.5)
@@ -61,6 +65,13 @@ speed_scale = 4.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qxf78")
+volume_db = 24.0
+
+[node name="Fwoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hbn4x")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
