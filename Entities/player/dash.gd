@@ -2,6 +2,7 @@ extends State
 
 @export var player : CharacterBody2D
 @export var dash_sfx : AudioStreamPlayer2D
+@export var bonk_sfx : AudioStreamPlayer2D
 const GHOST_PREFAB = preload("res://Entities/player/player_ghost.tscn")
 
 var x_velo
@@ -46,6 +47,8 @@ func Physics_Update(_delta : float):
 	
 	if(abs(y_velo) < 200 && abs(x_velo) < 200):
 		Transitioned.emit(self,"inair")
+	if(player.is_on_ceiling()):
+		bonk_sfx.play()
 	if(player.is_on_wall() || player.is_on_floor() || player.is_on_ceiling()):
 		player.reset_velocity()
 		Transitioned.emit(self,"inair")

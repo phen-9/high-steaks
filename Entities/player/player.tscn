@@ -147,10 +147,11 @@ player = NodePath("../..")
 timer = NodePath("../../JumpTimer")
 sounds = NodePath("../../BonkSound")
 
-[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "dash_sfx")]
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "dash_sfx", "bonk_sfx")]
 script = ExtResource("9_7px64")
 player = NodePath("../..")
 dash_sfx = NodePath("DashSFX")
+bonk_sfx = NodePath("../../BonkSound")
 
 [node name="DashSFX" type="AudioStreamPlayer2D" parent="StateMachine/Dash"]
 stream = ExtResource("10_fvff2")
@@ -176,5 +177,6 @@ shape = SubResource("RectangleShape2D_wgu4b")
 
 [node name="SauceSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_l7pk6")
+volume_db = -4.616
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
