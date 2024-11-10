@@ -15,7 +15,7 @@ var sauce_count := 0
 @export var dash_decay : int
 @export var gravity : int
 @export var terminal_velocity : int
-@export var sprite : Sprite2D
+@export var sprite : AnimatedSprite2D
 
 var input_velocity : Vector2
 var instant_velocity : Vector2

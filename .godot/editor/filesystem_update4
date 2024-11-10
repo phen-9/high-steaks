@@ -6,3 +6,6 @@ res://Entities/player/ground_jump.gd
 res://Entities/Sauce/wsauce.gd
 res://Entities/player/on_wall.gd
 res://Entities/player/dash.gd
+res://Entities/player/player.gd
+res://Entities/player/on_ground.gd
+res://Entities/player/in_air.gd

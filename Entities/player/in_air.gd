@@ -4,9 +4,13 @@ class_name InAir
 @export var player : CharacterBody2D
 
 func Enter():
+	player.sprite.animation = "jump"
+	player.sprite.frame = 1
+	player.sprite.pause()
 	pass
 
 func Physics_Update(_delta: float):
+	
 	player.instant_velocity.y += player.gravity
 	player.input_velocity.x = player.air_speed * player.move_direction
 	var vert_dir = 0
