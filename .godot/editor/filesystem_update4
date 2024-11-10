@@ -18,3 +18,6 @@ res://Scenes/pause_menu.tscn
 res://game_manager.gd
 >>>>>>> Stashed changes
 res://Entities/player/on_ground.gd
+res://Entities/Sauce/wsauce.tscn
+res://Entities/Sauce/wsauce.gd
+res://Entities/player/dash.gd

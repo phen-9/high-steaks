@@ -5,6 +5,12 @@ class_name OnGround
 
 func Enter() -> void:
 	player.can_wall = true
+	player.sauce_count = 0
+	
+	var game = player.get_parent()
+	for child in game.get_children():
+		if(child.has_method("reactivate_sauce")):
+			child.reactivate_sauce()
 	pass
 
 func Physics_Update(delta: float) -> void:
