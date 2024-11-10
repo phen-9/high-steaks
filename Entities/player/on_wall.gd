@@ -3,7 +3,6 @@ extends State
 @export var player : CharacterBody2D
 
 func Enter():
-	player.can_wall = false
 	player.reset_velocity()
 	pass
 
@@ -15,8 +14,7 @@ func Update(_delta : float):
 
 func Physics_Update(_delta : float):
 	if(Input.is_action_pressed("move_down")):
-		player.input_velocity.y = player.slide_speed
-		print("SDFJBIBFIUEFEW")
+		player.input_velocity.y = 100
 	else:
 		player.reset_velocity()
 	
