@@ -85,7 +85,7 @@ animations = [{
 size = Vector2(22, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgu4b"]
-size = Vector2(20, 22)
+size = Vector2(15, 19)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "sauce_sfx")]
 script = ExtResource("1_6n2u6")
@@ -172,8 +172,9 @@ stream = ExtResource("8_foefe")
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 1)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_wgu4b")
+debug_color = Color(0.948107, 2.11775e-06, 0.579902, 0.42)
 
 [node name="SauceSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_l7pk6")

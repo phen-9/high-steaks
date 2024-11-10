@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://dy3dwtgvovmgy"]
+[gd_scene load_steps=11 format=4 uid="uid://dy3dwtgvovmgy"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_mk10q"]
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_dlu6b"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="4_uom42"]
+[ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="6_8xbch"]
 [ext_resource type="AudioStream" uid="uid://c424oj34pxxif" path="res://Assets/Sounds/Platformer.ogg" id="6_vpp75"]
+[ext_resource type="PackedScene" uid="uid://dv4u2xr5su03p" path="res://Entities/knife/knife.tscn" id="7_vg3g6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
@@ -71,11 +73,17 @@ position = Vector2(398, 353)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("4_dlu6b")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -28.0
+offset_top = -5.0
+offset_right = -28.0
+offset_bottom = -5.0
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_vpp75")
 autoplay = true
+
+[node name="Stove" parent="." instance=ExtResource("6_8xbch")]
+position = Vector2(207, 350)
+
+[node name="Knife" parent="." instance=ExtResource("7_vg3g6")]
+position = Vector2(75, 300)
