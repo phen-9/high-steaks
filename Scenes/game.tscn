@@ -64,4 +64,4 @@ tile_map_data = PackedByteArray("AAD6/xYAAAABAAAAAAD7/xYAAAABAAAAAAD8/xYAAAABAAA
 tile_set = SubResource("TileSet_n8oak")
 
 [node name="wsauce" parent="." instance=ExtResource("4_uom42")]
-position = Vector2(211, 330)
+position = Vector2(398, 353)

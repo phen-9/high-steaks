@@ -15,6 +15,11 @@ func Enter() -> void:
 
 func Physics_Update(delta: float) -> void:
 	player.reset_velocity()
+	if(abs(player.move_direction) != 0):
+		player.sprite.animation = "walk"
+		player.sprite.play()
+	else:
+		player.sprite.animation = "idle"
 	
 	player.input_velocity.x = player.ground_speed * player.move_direction
 	
