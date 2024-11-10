@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4ex8w10kfd5"]
 
-[ext_resource type="Script" path="res://wsauce.gd" id="1_je565"]
+[ext_resource type="Script" path="res://Entities/Sauce/wsauce.gd" id="1_je565"]
 [ext_resource type="Texture2D" uid="uid://b32n3gbccqkjt" path="res://icon.svg" id="2_sk737"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vh1ak"]
@@ -21,12 +21,13 @@ size = Vector2(20, 24)
 script = ExtResource("1_je565")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(345, 340)
+position = Vector2(0, 0.500031)
 scale = Vector2(0.171875, 0.195313)
 sprite_frames = SubResource("SpriteFrames_vh1ak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(345, 340)
+position = Vector2(-3.05176e-05, 0.500031)
 shape = SubResource("RectangleShape2D_ymntp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

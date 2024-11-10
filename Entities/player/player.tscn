@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://o5jbadcta5p"]
+[gd_scene load_steps=13 format=3 uid="uid://o5jbadcta5p"]
 
 [ext_resource type="Script" path="res://Entities/player/player.gd" id="1_6n2u6"]
 [ext_resource type="Texture2D" uid="uid://c2vfxxto5or8y" path="res://Assets/player-placeholder.png" id="2_y0y0c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Entities/player/on_wall.gd" id="7_m0b7x"]
 [ext_resource type="AudioStream" uid="uid://3syisihumfdj" path="res://Assets/bonk.wav" id="8_foefe"]
 [ext_resource type="Script" path="res://Entities/player/wall_jump.gd" id="8_mxrea"]
+[ext_resource type="Script" path="res://Entities/player/dash.gd" id="9_7px64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6xt"]
 size = Vector2(22, 26)
@@ -16,19 +17,17 @@ size = Vector2(22, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgu4b"]
 size = Vector2(20, 22)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("label", "state_machine", "sprite")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_6n2u6")
 jump_strength = 600
 hop_strength = 300
 side_jump_strength = 200
 ground_speed = 50
 air_speed = 200
-slide_speed = 40
+slide_speed = 300
 dash_decay = 30
 gravity = 30
 terminal_velocity = 1000
-label = NodePath("State")
-state_machine = NodePath("StateMachine")
 sprite = NodePath("PlaceholderSprite")
 
 [node name="PlaceholderSprite" type="Sprite2D" parent="."]
@@ -65,6 +64,10 @@ script = ExtResource("8_mxrea")
 player = NodePath("../..")
 timer = NodePath("../../JumpTimer")
 sounds = NodePath("../../BonkSound")
+
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("9_7px64")
+player = NodePath("../..")
 
 [node name="State" type="Label" parent="."]
 offset_left = 13.0
