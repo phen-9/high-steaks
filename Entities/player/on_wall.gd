@@ -14,7 +14,7 @@ func Update(_delta : float):
 
 func Physics_Update(_delta : float):
 	if(Input.is_action_pressed("move_down")):
-		player.input_velocity.y = 100
+		player.input_velocity.y = player.slide_speed
 	else:
 		player.reset_velocity()
 	

@@ -17,8 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.has_method("add_sauce"):
 			body.add_sauce()
 			is_active = false
-			sprite.hide()
+			sprite.frame = 1
 
 func reactivate_sauce():
 	is_active = true
-	sprite.show()
+	sprite.frame =0

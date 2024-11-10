@@ -23,7 +23,6 @@ func Physics_Update(_delta : float):
 		player.reset_velocity()
 		sounds.play()
 		Transitioned.emit(self,"inair")
-		
 	if(player.is_on_wall() && Input.is_action_pressed("hold_wall") && player.can_wall):
 		Transitioned.emit(self,"onwall")
 	player.input_velocity.x = player.air_speed * player.move_direction
