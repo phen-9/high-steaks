@@ -1,3 +1,4 @@
+State
 CollisionShape2D
 Hitbox
 Area2D
@@ -7,6 +8,5 @@ Label
 MeshInstance2D
 ColorRect
 StateMachine
-State
 Node2D
 StaticBody2D

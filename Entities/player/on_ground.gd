@@ -3,7 +3,8 @@ class_name OnGround
 
 @export var player :CharacterBody2D
 
-func OnEnter() -> void:
+func Enter() -> void:
+	player.can_wall = true
 	pass
 
 func Physics_Update(delta: float) -> void:
