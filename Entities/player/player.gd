@@ -3,8 +3,6 @@ extends CharacterBody2D
 var move_direction : int
 var vertical_direction : int
 var is_saucy := false
-var can_wall := true
-
 
 @export var jump_strength : int
 @export var hop_strength : int
@@ -20,26 +18,13 @@ var can_wall := true
 var input_velocity : Vector2
 var instant_velocity : Vector2
 
-@export var label : Label
-@export var state_machine : StateMachine
-@export var sprite : Sprite2D
-
 func _ready() -> void:
 	
 	pass
 
 func _process(delta: float) -> void:
-	if(can_wall):
-		label.text = "can wall"
-	else:
-		label.text = "L bozoa "
-		
 	move_direction =  Input.get_axis("move_left","move_right")
 	vertical_direction = Input.get_axis("move_up","move_down")
-	if(move_direction < 0):
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -52,9 +37,7 @@ func reset_velocity():
 	input_velocity = Vector2(0,0)
 	instant_velocity = Vector2(0,0)
 
-func die():
-	queue_free()
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if(area.has_method("endgame_yourself")):
-		die()
+func add_sauce():
+	is_saucy = true
+	pass
