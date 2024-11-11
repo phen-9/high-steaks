@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://8ny1kdtf8ht0"]
+[gd_scene load_steps=10 format=4 uid="uid://8ny1kdtf8ht0"]
 
 [ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="1_eifre"]
 [ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_dqjag"]
+[ext_resource type="PackedScene" uid="uid://by6aulfmg5dbj" path="res://Scenes/level_3.tscn" id="2_kdxxm"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="3_lp2we"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_0j60e"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="5_qnbj5"]
@@ -15,6 +16,7 @@ size = Vector2(1008.5, 20)
 
 [node name="PlayerHandler" parent="." instance=ExtResource("1_eifre")]
 position = Vector2(58, 414)
+next_level = ExtResource("2_kdxxm")
 
 [node name="TileMapLayer2" parent="." instance=ExtResource("2_dqjag")]
 position = Vector2(112, 97)

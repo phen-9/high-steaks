@@ -1,8 +1,8 @@
+Sprite2D
 Label
 CollisionShape2D
 Area2D
 CanvasLayer
-Sprite2D
 Camera2D
 Timer
 GPUParticles2D
