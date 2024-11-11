@@ -5,15 +5,11 @@ class_name OnGround
 @export var walk_sfx : AudioStreamPlayer2D
 @export var sfx_timer : Timer
 
+
 func Enter() -> void:
 	player.can_wall = true
 	player.sauce_count = 0
-	
-	var game = $"."
-	for child in game.get_children():
-		if(child.has_method("reactivate_sauce")):
-			child.reactivate_sauce()
-	pass
+	player.get_parent().emit_signal("clear_sauce")
 
 func Physics_Update(delta: float) -> void:
 	player.reset_velocity()

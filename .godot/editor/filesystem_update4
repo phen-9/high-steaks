@@ -19,3 +19,10 @@ res://Entities/player/player.gd
 res://Scenes/player_handler.gd
 res://Entities/player/dead.gd
 res://Entities/player/on_ground.gd
+res://Scenes/level.tscn
+res://Scenes/level_2.tscn
+res://Scenes/level_3.tscn
+res://Scenes/level_4.tscn
+res://Scenes/level_5.tscn
+res://Entities/Sauce/wsauce.gd
+res://Entities/player/on_wall.gd

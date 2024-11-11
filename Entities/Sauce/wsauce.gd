@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 	sprite.position.y = sprite_offset
 	pass
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if(is_active):
 		if body.has_method("add_sauce"):

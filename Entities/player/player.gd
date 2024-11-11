@@ -20,6 +20,8 @@ var sauce_count := 0
 
 @export var sauce_sfx : AudioStreamPlayer2D
 
+@onready var camera = $Camera2D
+
 signal death
 
 
