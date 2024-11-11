@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dy3dwtgvovmgy"]
+[gd_scene load_steps=12 format=4 uid="uid://dy3dwtgvovmgy"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_mk10q"]
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="4_uom42"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="6_8xbch"]
 [ext_resource type="PackedScene" uid="uid://dv4u2xr5su03p" path="res://Entities/knife/knife.tscn" id="7_vg3g6"]
+[ext_resource type="PackedScene" uid="uid://b6w105gstt4do" path="res://Entities/PizzaCutter/PizzaCutter.tscn" id="8_3imln"]
+[ext_resource type="PackedScene" uid="uid://bhnpi4r44bvf0" path="res://Entities/Spike/spike.tscn" id="8_esg1d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
@@ -72,7 +74,6 @@ position = Vector2(398, 353)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("4_dlu6b")]
-visible = false
 offset_left = -28.0
 offset_top = -5.0
 offset_right = -28.0
@@ -84,3 +85,9 @@ sync_to_physics = false
 
 [node name="Knife" parent="." instance=ExtResource("7_vg3g6")]
 position = Vector2(96, 203)
+
+[node name="Spike" parent="." instance=ExtResource("8_esg1d")]
+position = Vector2(398, 382)
+
+[node name="PizzaCutter" parent="." instance=ExtResource("8_3imln")]
+position = Vector2(-16, -21)

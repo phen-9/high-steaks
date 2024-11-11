@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6w105gstt4do"]
+
+[ext_resource type="Texture2D" uid="uid://dytsp0kka605d" path="res://Assets/PizzaCutter.png" id="1_tprjh"]
+[ext_resource type="Script" path="res://Resources/Hitbox.gd" id="2_mgwau"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymg0u"]
+radius = 30.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awaea"]
+size = Vector2(31, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfb2o"]
+size = Vector2(24.75, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uehj"]
+
+[node name="PizzaCutter" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tprjh")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_mgwau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(16, 40)
+shape = SubResource("CircleShape2D_ymg0u")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.001
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-30, -64)
+shape = SubResource("RectangleShape2D_awaea")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-25, -56)
+shape = SubResource("RectangleShape2D_awaea")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-5, -32)
+shape = SubResource("RectangleShape2D_awaea")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-11.5, -40)
+shape = SubResource("RectangleShape2D_awaea")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-18, -48)
+shape = SubResource("RectangleShape2D_awaea")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(3.375, -19)
+shape = SubResource("RectangleShape2D_nfb2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 40)
+shape = SubResource("RectangleShape2D_3uehj")
