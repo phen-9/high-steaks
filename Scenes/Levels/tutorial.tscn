@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=4 uid="uid://b7hdts2wrx510"]
+
+[ext_resource type="PackedScene" uid="uid://dos6fs87s2" path="res://Entities/levelEnd/level_end.tscn" id="1_u5sfn"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_j8hlg"]
+[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="3_afwo5"]
+[ext_resource type="FontFile" uid="uid://bvl0k8ft23s8b" path="res://Assets/upheavtt.ttf" id="4_xxum2"]
+[ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="5_ess4b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2al78"]
+font = ExtResource("4_xxum2")
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="LevelEnd" parent="." instance=ExtResource("1_u5sfn")]
+position = Vector2(864, 265)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_j8hlg")]
+tile_map_data = PackedByteArray("AAD+/wcAAQABAAAAAAD//wcAAQABAAAAAAAAAAcAAQABAAAAAAABAAcAAQACAAAAAAD9/wcAAQABAAAAAAD8/wcAAQACAAAAAGABAAgAAQACAAAAAFD8/wgAAQACAAAAADD9/wgAAQABAAAAADD+/wgAAQABAAAAADD//wgAAQABAAAAADAAAAgAAQABAAAAADAIAAUAAQABAAAAAAAJAAUAAQABAAAAAAAKAAUAAQABAAAAAAALAAUAAQABAAAAAAAHAAUAAQACAAAAAGAHAAYAAQACAAAAADAMAAUAAQACAAAAAAAMAAYAAQACAAAAAFAIAAYAAQABAAAAADAJAAYAAQABAAAAADAKAAYAAQABAAAAADALAAYAAQABAAAAADARAP//AQACAAAAAGARAAAAAQACAAEAADARAAEAAQACAAEAADARAAIAAQACAAEAADARAAMAAQACAAEAADASAP//AQACAAAAAAASAAAAAQACAAEAAAASAAEAAQACAAEAAAASAAIAAQACAAEAAAASAAMAAQACAAEAAAASAAQAAQACAAAAAFARAAQAAQACAAAAADAeAP7/AQACAAAAAAAeAP//AQACAAAAAFAdAP//AQACAAAAADAdAP7/AQACAAAAAGA=")
+
+[node name="PlayerHandler" parent="." instance=ExtResource("3_afwo5")]
+position = Vector2(94, 135)
+
+[node name="Label" type="Label" parent="."]
+show_behind_parent = true
+offset_left = 28.0
+offset_top = 104.0
+offset_right = 228.0
+offset_bottom = 127.0
+text = "you are steak"
+label_settings = SubResource("LabelSettings_2al78")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("5_ess4b")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = -1.0
+offset_bottom = 1.0
