@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckbmw1d84ukgr"]
+[gd_scene load_steps=7 format=3 uid="uid://dllbyxnnlwp31"]
 
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="1_xkfpb"]
 [ext_resource type="Texture2D" uid="uid://cflg0vjjtd8tx" path="res://Assets/Wood_Tilesheet.png" id="2_mo65p"]
-[ext_resource type="Texture2D" uid="uid://cq160oh2iaanf" path="res://Assets/Toothpick.png" id="3_gsbwc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffxdp"]
 
@@ -89,21 +88,11 @@ texture = ExtResource("2_mo65p")
 2:3/0 = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ydq7"]
-texture = ExtResource("3_gsbwc")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.875, -8, 4.875, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
 [sub_resource type="TileSet" id="TileSet_n8oak"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_ffxdp")
 sources/0 = SubResource("TileSetAtlasSource_xvl0l")
 sources/1 = SubResource("TileSetAtlasSource_xu4t8")
-sources/2 = SubResource("TileSetAtlasSource_0ydq7")
 
 [node name="TileMapLayer" type="TileMapLayer"]
 position = Vector2(111, 38)

@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=4 uid="uid://b7hdts2wrx510"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/tutorial.gd" id="1_cwbfd"]
+[ext_resource type="PackedScene" uid="uid://dos6fs87s2" path="res://Entities/levelEnd/level_end.tscn" id="1_u5sfn"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_j8hlg"]
+[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="3_afwo5"]
+[ext_resource type="FontFile" uid="uid://bvl0k8ft23s8b" path="res://Assets/upheavtt.ttf" id="4_xxum2"]
+[ext_resource type="PackedScene" uid="uid://8ny1kdtf8ht0" path="res://Scenes/level_2.tscn" id="5_8xqku"]
+[ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="5_ess4b"]
+[ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="8_3j5il"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2al78"]
+font = ExtResource("4_xxum2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lo6ha"]
+font = ExtResource("4_xxum2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y2g5"]
+size = Vector2(28, 29)
+
+[sub_resource type="LabelSettings" id="LabelSettings_47voy"]
+font = ExtResource("4_xxum2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxas4"]
+size = Vector2(116, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u04uc"]
+font = ExtResource("4_xxum2")
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_cwbfd")
+
+[node name="LevelEnd" parent="." instance=ExtResource("1_u5sfn")]
+position = Vector2(1145, -401)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_j8hlg")]
+tile_map_data = PackedByteArray("AAD+/wcAAQABAAAAAAD//wcAAQABAAAAAAAAAAcAAQABAAAAAAABAAcAAQACAAAAAAD9/wcAAQABAAAAAAD8/wcAAQACAAAAAGABAAgAAQACAAAAAFD8/wgAAQACAAAAADD9/wgAAQABAAAAADD+/wgAAQABAAAAADD//wgAAQABAAAAADAAAAgAAQABAAAAADAIAAUAAQABAAAAAAAJAAUAAQABAAAAAAAKAAUAAQABAAAAAAALAAUAAQABAAAAAAAHAAUAAQACAAAAAGAHAAYAAQACAAAAADAMAAUAAQACAAAAAAAMAAYAAQACAAAAAFAIAAYAAQABAAAAADAJAAYAAQABAAAAADAKAAYAAQABAAAAADALAAYAAQABAAAAADARAP//AQACAAAAAGARAAAAAQACAAEAADARAAEAAQACAAEAADARAAIAAQACAAEAADARAAMAAQACAAEAADASAP//AQACAAAAAAASAAAAAQACAAEAAAASAAEAAQACAAEAAAASAAIAAQACAAEAAAASAAMAAQACAAEAAAASAAQAAQACAAAAAFARAAQAAQACAAAAADAeAP7/AQACAAAAAAAeAP//AQACAAAAAFAdAP//AQACAAAAADAdAP7/AQACAAAAAGAjAPz/AQACAAAAADAjAPv/AQACAAEAADAjAPr/AQACAAEAADAjAPn/AQACAAEAADAjAPj/AQACAAEAADAjAPf/AQACAAEAADAjAPb/AQACAAEAADAkAPX/AQABAAAAAAAjAPX/AQACAAAAAGAkAPz/AQACAAAAAFAkAPv/AQACAAEAAAAkAPr/AQACAAEAAAAkAPn/AQACAAEAAAAkAPj/AQACAAEAAAAkAPf/AQACAAEAAAAkAPb/AQAEAAAAAFAlAPX/AQABAAAAAAAmAPX/AQABAAAAAAAnAPX/AQABAAAAAAAoAPX/AQABAAAAAAApAPX/AQACAAAAAAApAPb/AQACAAAAAFAoAPb/AQABAAAAADAnAPb/AQABAAAAADAmAPb/AQABAAAAADAlAPb/AQABAAAAADA+APX/AQACAAEAADA+APb/AQACAAEAADA+APf/AQACAAEAADA+APj/AQACAAAAADA+APT/AQACAAAAAGA/APT/AQABAAAAAABAAPT/AQABAAAAAABBAPT/AQABAAAAAABCAPT/AQACAAAAAABCAPj/AQACAAAAAFA/APj/AQABAAAAADBAAPj/AQABAAAAADBBAPj/AQABAAAAADBCAPf/AQABAAAAAFBCAPb/AQABAAAAAFBCAPX/AQABAAAAAFA/APX/AQABAAEAAAA/APb/AQABAAEAAAA/APf/AQABAAEAAABAAPf/AQABAAEAAABBAPf/AQABAAEAAABBAPb/AQABAAEAAABBAPX/AQABAAEAAABAAPX/AQABAAEAAABAAPb/AQABAAEAAAA=")
+
+[node name="PlayerHandler" parent="." instance=ExtResource("3_afwo5")]
+position = Vector2(94, 135)
+next_level = ExtResource("5_8xqku")
+
+[node name="Label" type="Label" parent="."]
+show_behind_parent = true
+offset_left = 28.0
+offset_top = 104.0
+offset_right = 228.0
+offset_bottom = 127.0
+text = "you are steak"
+label_settings = SubResource("LabelSettings_2al78")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("5_ess4b")]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="WallLabel" type="Label" parent="."]
+offset_left = 492.0
+offset_top = 46.0
+offset_right = 684.0
+offset_bottom = 69.0
+label_settings = SubResource("LabelSettings_lo6ha")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(591, -4.5)
+shape = SubResource("RectangleShape2D_3y2g5")
+
+[node name="SauceLabel" type="Label" parent="."]
+offset_left = 581.0
+offset_top = -245.0
+offset_right = 889.0
+offset_bottom = -222.0
+label_settings = SubResource("LabelSettings_47voy")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(467.231, -67.7039)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(267.769, -85.2961)
+shape = SubResource("RectangleShape2D_xxas4")
+
+[node name="wsauce" parent="." instance=ExtResource("8_3j5il")]
+position = Vector2(941, -124)
+
+[node name="wsauce2" parent="." instance=ExtResource("8_3j5il")]
+position = Vector2(1145, -278)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 987.0
+offset_top = -368.0
+offset_right = 1358.0
+offset_bottom = -345.0
+text = "Collect the wash your sister sauce bottle 
+          to proceed to the next level"
+label_settings = SubResource("LabelSettings_u04uc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D2" to="." method="_on_area_2d_2_body_shape_entered"]

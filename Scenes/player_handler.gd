@@ -2,7 +2,10 @@ extends Node2D
 
 const PLAYER_PREFAB = preload("res://Entities/player/player.tscn")
 @onready var player = $Player
+@export var next_level : PackedScene
 signal clear_sauce
+
+var levels : Dictionary = {0 : preload("res://Scenes/Levels/tutorial.tscn")}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +15,9 @@ func _ready() -> void:
 		var child = children[i]
 		if(child.has_method("reactivate_sauce")):
 			clear_sauce.connect(child.reactivate_sauce)
-		
+		if(child.has_signal("finish_level")):
+			child.finish_level.connect(finish_level)
+	
 	
 	pass # Replace with function body.
 
@@ -26,4 +31,9 @@ func spawn_player():
 	var new_player = PLAYER_PREFAB.instantiate()
 	new_player.death.connect(spawn_player)
 	add_child(new_player)
+	pass
+
+func finish_level():
+	print("YIPPEE")
+	get_tree().change_scene_to_packed(next_level)
 	pass

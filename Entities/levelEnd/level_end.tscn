@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dos6fs87s2"]
+
+[ext_resource type="Script" path="res://Entities/levelEnd/level_end.gd" id="1_8th1m"]
+[ext_resource type="Texture2D" uid="uid://pk0tt5nrcovn" path="res://Assets/marketing-view-color-front-unit_content-hub-1410581_2720157c43d7eba398a93296c8ebde0c.png" id="1_fgmht"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_js2n3"]
+radius = 16.0312
+
+[node name="LevelEnd" type="Area2D"]
+script = ExtResource("1_8th1m")
+
+[node name="Marketing-view-color-front-unitContent-hub-14105812720157c43d7Eba398a93296c8Ebde0c" type="Sprite2D" parent="."]
+rotation = 0.523599
+scale = Vector2(0.020057, 0.020057)
+texture = ExtResource("1_fgmht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_js2n3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

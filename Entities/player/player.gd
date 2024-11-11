@@ -38,6 +38,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move_direction =  Input.get_axis("move_left","move_right")
 	vertical_direction = Input.get_axis("move_up","move_down")
+	
+	if(Input.is_action_just_pressed("reset")):
+		state_machine.on_child_transition(state_machine.current_state,"dead")
 	if(move_direction != 0):
 		forward = move_direction
 	if(state_machine.current_state != $StateMachine/Dead):
