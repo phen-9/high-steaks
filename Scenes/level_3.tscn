@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://by6aulfmg5dbj"]
+[gd_scene load_steps=6 format=4 uid="uid://ca814d71p8g6x"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_nft8t"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="2_ndfi7"]
-[ext_resource type="PackedScene" path="res://tile_map_layer.tscn" id="3_8vam2"]
+[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="3_8vam2"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_vp8fq"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="5_bwhxr"]
 
