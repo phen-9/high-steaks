@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv4u2xr5su03p"]
+[gd_scene load_steps=14 format=3 uid="uid://dv4u2xr5su03p"]
 
 [ext_resource type="Texture2D" uid="uid://0gk82guw3hyn" path="res://Assets/KnifeObstacle.png" id="1_0svaq"]
 [ext_resource type="Script" path="res://Entities/knife/knife.gd" id="1_oyfhx"]
@@ -7,15 +7,18 @@
 [ext_resource type="Script" path="res://Entities/knife/wait.gd" id="5_2riam"]
 [ext_resource type="Script" path="res://Entities/knife/murder.gd" id="6_f8v1j"]
 [ext_resource type="Script" path="res://Entities/knife/return.gd" id="7_iioeg"]
+[ext_resource type="AudioStream" uid="uid://coxw4wywntiis" path="res://Assets/Sounds/KnifeBuildup.wav" id="8_lturp"]
+[ext_resource type="AudioStream" uid="uid://bsik71d6jrono" path="res://Assets/Sounds/KnifeSlam.wav" id="9_7m3ad"]
+[ext_resource type="AudioStream" uid="uid://bs01t7aeqixoq" path="res://Assets/Sounds/KnifeStartup.wav" id="10_l58v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2m8"]
 size = Vector2(38, 182)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gefxa"]
-size = Vector2(59.5, 4)
+size = Vector2(63.5, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6il8x"]
-size = Vector2(40, 3)
+size = Vector2(38, 2)
 
 [node name="Knife" type="Node2D"]
 script = ExtResource("1_oyfhx")
@@ -27,21 +30,20 @@ position = Vector2(13, 94)
 shape = SubResource("RectangleShape2D_sa2m8")
 
 [node name="KnifeBody" type="CharacterBody2D" parent="."]
-motion_mode = 1
 platform_on_leave = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="KnifeBody"]
 texture = ExtResource("1_0svaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeBody"]
-position = Vector2(-1.75, -1)
+position = Vector2(0.25, -1)
 shape = SubResource("RectangleShape2D_gefxa")
 
 [node name="KnifeHitbox" type="Area2D" parent="KnifeBody"]
 script = ExtResource("2_fhxiu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeBody/KnifeHitbox"]
-position = Vector2(14, 1.5)
+position = Vector2(13, 2)
 shape = SubResource("RectangleShape2D_6il8x")
 debug_color = Color(0.967938, 0, 0.471078, 0.42)
 
@@ -58,12 +60,24 @@ initial_state = NodePath("wait")
 [node name="wait" type="Node" parent="StateMachine"]
 script = ExtResource("5_2riam")
 
-[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "build", "startup")]
 script = ExtResource("6_f8v1j")
 sprite = NodePath("../../KnifeBody/Sprite2D")
+build = NodePath("../../BuildupSFX")
+startup = NodePath("../../StartupSFX")
 
-[node name="return" type="Node" parent="StateMachine"]
+[node name="return" type="Node" parent="StateMachine" node_paths=PackedStringArray("slam")]
 script = ExtResource("7_iioeg")
+slam = NodePath("../../SlamSFX")
+
+[node name="BuildupSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lturp")
+
+[node name="SlamSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_7m3ad")
+
+[node name="StartupSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_l58v4")
 
 [connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
 [connection signal="body_entered" from="SearchArea" to="StateMachine/wait" method="_on_search_area_body_entered"]

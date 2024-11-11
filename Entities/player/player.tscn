@@ -108,8 +108,7 @@ sauce_sfx = NodePath("Node/SauceSFX")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_54kqt")
-animation = &"walk"
-frame_progress = 0.0815371
+animation = &"jump"
 speed_scale = 2.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]

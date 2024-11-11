@@ -10,7 +10,7 @@ func Enter():
 	pass
 
 func Update(_delta : float):
-	if(!Input.is_action_pressed("hold_wall")):
+	if(!Input.is_action_pressed("hold_wall") || !player.is_on_wall()):
 		Transitioned.emit(self,"inair")
 	if(Input.is_action_just_pressed("jump")):
 		Transitioned.emit(self,"walljump")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpwgodfkieojs"]
+
+[ext_resource type="Script" path="res://Entities/fork/fork.gd" id="1_nhuay"]
+[ext_resource type="Texture2D" uid="uid://bqjmkl3hugs71" path="res://Assets/ForkObstacle.png" id="2_xhpny"]
+[ext_resource type="Script" path="res://Resources/Hitbox.gd" id="3_i0iga"]
+[ext_resource type="Script" path="res://Resources/state-machine.gd" id="4_t5qtd"]
+[ext_resource type="Script" path="res://Entities/fork/wait.gd" id="5_mttef"]
+[ext_resource type="Script" path="res://Entities/fork/murder.gd" id="6_xjdrd"]
+[ext_resource type="Script" path="res://Entities/fork/return.gd" id="7_yqkko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gefxa"]
+size = Vector2(7, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6il8x"]
+size = Vector2(14, 9.5)
+
+[node name="Fork" type="Node2D"]
+script = ExtResource("1_nhuay")
+
+[node name="ForkBody" type="CharacterBody2D" parent="."]
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ForkBody"]
+texture = ExtResource("2_xhpny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForkBody"]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_gefxa")
+
+[node name="ForkHitbox" type="Area2D" parent="ForkBody"]
+script = ExtResource("3_i0iga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForkBody/ForkHitbox"]
+position = Vector2(0, 33.75)
+shape = SubResource("RectangleShape2D_6il8x")
+debug_color = Color(0.967938, 0, 0.471078, 0.42)
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReturnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_t5qtd")
+initial_state = NodePath("wait")
+
+[node name="wait" type="Node" parent="StateMachine"]
+script = ExtResource("5_mttef")
+
+[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("6_xjdrd")
+sprite = NodePath("../../ForkBody/Sprite2D")
+
+[node name="return" type="Node" parent="StateMachine"]
+script = ExtResource("7_yqkko")
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="WaitTimer" to="StateMachine/wait" method="_on_wait_timer_timeout"]
