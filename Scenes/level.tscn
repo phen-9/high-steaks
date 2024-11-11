@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ds47uvxob27gi" path="res://Assets/Kitchen_tilesheet.png" id="2_vq1m2"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_dlu6b"]
-[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="4_r2uor"]
+[ext_resource type="PackedScene" path="res://Scenes/player_handler.tscn" id="4_r2uor"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="4_uom42"]
 [ext_resource type="PackedScene" uid="uid://dos6fs87s2" path="res://Entities/levelEnd/level_end.tscn" id="5_78xqc"]
 
@@ -55,7 +55,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_ffxdp")
 sources/0 = SubResource("TileSetAtlasSource_xvl0l")
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

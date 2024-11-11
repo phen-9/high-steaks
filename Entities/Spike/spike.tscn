@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Resources/Hitbox.gd" id="3_i8p33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl2dm"]
-size = Vector2(8, 1)
+size = Vector2(6, 1)
 
 [node name="Spike" type="Area2D"]
 
@@ -15,7 +15,7 @@ texture = ExtResource("1_n7bke")
 script = ExtResource("3_i8p33")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(4, 8, 0, -4, -4, 8)
+polygon = PackedVector2Array(5, 8, 0, -4, -5, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpwgodfkieojs"]
+[gd_scene load_steps=13 format=3 uid="uid://dpwgodfkieojs"]
 
 [ext_resource type="Script" path="res://Entities/fork/fork.gd" id="1_nhuay"]
 [ext_resource type="Texture2D" uid="uid://bqjmkl3hugs71" path="res://Assets/ForkObstacle.png" id="2_xhpny"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Entities/fork/wait.gd" id="5_mttef"]
 [ext_resource type="Script" path="res://Entities/fork/murder.gd" id="6_xjdrd"]
 [ext_resource type="Script" path="res://Entities/fork/return.gd" id="7_yqkko"]
+[ext_resource type="AudioStream" uid="uid://coxw4wywntiis" path="res://Assets/Sounds/KnifeBuildup.wav" id="8_feox4"]
+[ext_resource type="AudioStream" uid="uid://bs01t7aeqixoq" path="res://Assets/Sounds/KnifeStartup.wav" id="9_bkuel"]
+[ext_resource type="AudioStream" uid="uid://bsik71d6jrono" path="res://Assets/Sounds/KnifeSlam.wav" id="10_7j5j2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gefxa"]
 size = Vector2(7, 74)
@@ -49,15 +52,28 @@ initial_state = NodePath("wait")
 [node name="wait" type="Node" parent="StateMachine"]
 script = ExtResource("5_mttef")
 
-[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "build", "startup")]
 script = ExtResource("6_xjdrd")
 sprite = NodePath("../../ForkBody/Sprite2D")
+build = NodePath("../../Build")
+startup = NodePath("../../Slice")
 
-[node name="return" type="Node" parent="StateMachine"]
+[node name="return" type="Node" parent="StateMachine" node_paths=PackedStringArray("slam")]
 script = ExtResource("7_yqkko")
+slam = NodePath("../../Slam")
 
 [node name="WaitTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Build" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_feox4")
+pitch_scale = 1.21
+
+[node name="Slice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_bkuel")
+
+[node name="Slam" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7j5j2")
 
 [connection signal="timeout" from="WaitTimer" to="StateMachine/wait" method="_on_wait_timer_timeout"]
