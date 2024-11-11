@@ -31,3 +31,5 @@ res://Entities/levelEnd/tutorial.tscn
 res://Entities/levelEnd/level_end.gd
 res://Scenes/Levels/tutorial.tscn
 res://tile_map_layer.tscn
+res://Scenes/Levels/tutorial.gd
+res://Scenes/level_6.tscn

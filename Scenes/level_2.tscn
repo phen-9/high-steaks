@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://kaugy6kvux4p"]
+[gd_scene load_steps=8 format=4 uid="uid://8ny1kdtf8ht0"]
 
 [ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_5va05"]
-[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="2_dqjag"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_dqjag"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="3_lp2we"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_0j60e"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="5_qnbj5"]
@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6doy"]
 size = Vector2(1008.5, 20)
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5va05")]
 position = Vector2(54, 417)

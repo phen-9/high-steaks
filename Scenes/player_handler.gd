@@ -2,7 +2,7 @@ extends Node2D
 
 const PLAYER_PREFAB = preload("res://Entities/player/player.tscn")
 @onready var player = $Player
-var level = 0
+@export var next_level : PackedScene
 signal clear_sauce
 
 var levels : Dictionary = {0 : preload("res://Scenes/Levels/tutorial.tscn")}
@@ -35,4 +35,5 @@ func spawn_player():
 
 func finish_level():
 	print("YIPPEE")
+	get_tree().change_scene_to_packed(next_level)
 	pass
