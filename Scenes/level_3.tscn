@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ca814d71p8g6x"]
+[gd_scene load_steps=10 format=4 uid="uid://by6aulfmg5dbj"]
 
-[ext_resource type="PackedScene" uid="uid://davgjidb7u8gr" path="res://Scenes/player_handler.tscn" id="1_ulgfx"]
+[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="1_ulgfx"]
+[ext_resource type="PackedScene" uid="uid://cxqkh830b6rt" path="res://Scenes/level_4.tscn" id="2_3ruga"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="2_ndfi7"]
-[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="3_8vam2"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="3_8vam2"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_vp8fq"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="5_bwhxr"]
 [ext_resource type="PackedScene" uid="uid://bhnpi4r44bvf0" path="res://Entities/Spike/spike.tscn" id="6_650y5"]
@@ -13,6 +14,7 @@
 
 [node name="PlayerHandler" parent="." instance=ExtResource("1_ulgfx")]
 position = Vector2(86, 395)
+next_level = ExtResource("2_3ruga")
 
 [node name="wsauce" parent="." instance=ExtResource("2_ndfi7")]
 position = Vector2(751, 257)
