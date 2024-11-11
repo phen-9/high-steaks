@@ -1,19 +1,20 @@
-[gd_scene load_steps=8 format=4 uid="uid://8ny1kdtf8ht0"]
+[gd_scene load_steps=9 format=4 uid="uid://kaugy6kvux4p"]
 
-[ext_resource type="PackedScene" uid="uid://o5jbadcta5p" path="res://Entities/player/player.tscn" id="1_5va05"]
-[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_dqjag"]
+[ext_resource type="PackedScene" uid="uid://davgjidb7u8gr" path="res://Scenes/player_handler.tscn" id="1_eifre"]
+[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="2_dqjag"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="3_lp2we"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="4_0j60e"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="5_qnbj5"]
 [ext_resource type="Script" path="res://Resources/Hitbox.gd" id="6_6k5j0"]
+[ext_resource type="PackedScene" uid="uid://dpwgodfkieojs" path="res://Entities/fork/fork.tscn" id="7_p6vgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6doy"]
 size = Vector2(1008.5, 20)
 
-[node name="Level3" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_5va05")]
-position = Vector2(54, 417)
+[node name="PlayerHandler" parent="." instance=ExtResource("1_eifre")]
+position = Vector2(58, 414)
 
 [node name="TileMapLayer2" parent="." instance=ExtResource("2_dqjag")]
 position = Vector2(112, 97)
@@ -49,3 +50,6 @@ script = ExtResource("6_6k5j0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_a6doy")
+
+[node name="Fork" parent="." instance=ExtResource("7_p6vgp")]
+position = Vector2(574, 42)
