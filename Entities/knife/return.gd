@@ -4,10 +4,13 @@ extends State
 @onready var timer = $"../../ReturnTimer"
 @onready var par = $"../.."
 
+@export var slam : AudioStreamPlayer2D
+
 const kp = 10
 var return_y
 
 func Enter():
+	slam.play()
 	return_y = par.return_y
 	timer.start(1)
 
