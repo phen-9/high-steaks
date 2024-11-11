@@ -13,3 +13,6 @@ res://Scenes/level_3.tscn
 res://Scenes/level_4.tscn
 res://Scenes/level_6.tscn
 res://tile_map_layer.tscn
+res://Entities/fork/fork.tscn
+res://Entities/fork/murder.gd
+res://Entities/fork/return.gd
