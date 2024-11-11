@@ -1,7 +1,7 @@
-res://Scenes/Levels
-res://Entities/levelEnd
+res://Assets
 res://Scenes
+res://Entities/PizzaCutter
+res://Entities/Spike
 res://Entities/knife
 res://Entities/stove
-res://Assets
 res://

@@ -1,31 +1,44 @@
-[gd_scene load_steps=15 format=4 uid="uid://b7hdts2wrx510"]
+[gd_scene load_steps=18 format=4 uid="uid://b7hdts2wrx510"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/tutorial.gd" id="1_cwbfd"]
 [ext_resource type="PackedScene" uid="uid://dos6fs87s2" path="res://Entities/levelEnd/level_end.tscn" id="1_u5sfn"]
-[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_j8hlg"]
-[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="3_afwo5"]
+[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="2_j8hlg"]
+[ext_resource type="PackedScene" path="res://Scenes/player_handler.tscn" id="3_afwo5"]
 [ext_resource type="FontFile" uid="uid://bvl0k8ft23s8b" path="res://Assets/upheavtt.ttf" id="4_xxum2"]
-[ext_resource type="PackedScene" uid="uid://8ny1kdtf8ht0" path="res://Scenes/level_2.tscn" id="5_8xqku"]
+[ext_resource type="PackedScene" uid="uid://kaugy6kvux4p" path="res://Scenes/level_2.tscn" id="5_8xqku"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="5_ess4b"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="8_3j5il"]
+[ext_resource type="Texture2D" uid="uid://253r6ko5ypw6" path="res://Assets/3d-wooden-table-against-defocussed-sunny-room-interior_1048-10411.webp" id="9_lf2dh"]
+[ext_resource type="Script" path="res://Resources/Hitbox.gd" id="10_h4us3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2al78"]
 font = ExtResource("4_xxum2")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lo6ha"]
 font = ExtResource("4_xxum2")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y2g5"]
 size = Vector2(28, 29)
 
 [sub_resource type="LabelSettings" id="LabelSettings_47voy"]
 font = ExtResource("4_xxum2")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxas4"]
 size = Vector2(116, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u04uc"]
 font = ExtResource("4_xxum2")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jlwx"]
+size = Vector2(2656, 38)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_cwbfd")
@@ -52,11 +65,11 @@ label_settings = SubResource("LabelSettings_2al78")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("5_ess4b")]
-visible = false
 offset_left = 0.0
 offset_top = 0.0
 offset_right = -1.0
 offset_bottom = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="WallLabel" type="Label" parent="."]
 offset_left = 492.0
@@ -91,6 +104,16 @@ position = Vector2(941, -124)
 [node name="wsauce2" parent="." instance=ExtResource("8_3j5il")]
 position = Vector2(1145, -278)
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 4.0
+offset_right = 396.0
+offset_bottom = 55.0
+text = "Arrow Keys / WASD to move
+C or Space to jump / dash
+R to restart"
+label_settings = SubResource("LabelSettings_u04uc")
+
 [node name="Label2" type="Label" parent="."]
 offset_left = 987.0
 offset_top = -368.0
@@ -99,6 +122,26 @@ offset_bottom = -345.0
 text = "Collect the wash your sister sauce bottle 
           to proceed to the next level"
 label_settings = SubResource("LabelSettings_u04uc")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Kitchen" type="Sprite2D" parent="CanvasLayer2"]
+show_behind_parent = true
+light_mask = 0
+z_index = -7
+z_as_relative = false
+position = Vector2(480, 270)
+scale = Vector2(1.53355, 1.14894)
+texture = ExtResource("9_lf2dh")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-10, -10)
+script = ExtResource("10_h4us3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(803, 345)
+shape = SubResource("RectangleShape2D_6jlwx")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_shape_entered" from="Area2D2" to="." method="_on_area_2d_2_body_shape_entered"]
