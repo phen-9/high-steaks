@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwv86268nllxf"]
+[gd_scene load_steps=10 format=4 uid="uid://dxjru16x0ln58"]
 
-[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="1_cx7cc"]
-[ext_resource type="PackedScene" uid="uid://davgjidb7u8gr" path="res://Scenes/player_handler.tscn" id="1_h8v78"]
-[ext_resource type="PackedScene" uid="uid://d3gvgcf3wb6jd" path="res://Scenes/level_6.tscn" id="2_rlr58"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="1_cx7cc"]
+[ext_resource type="PackedScene" uid="uid://hiepr6rqkytn" path="res://Scenes/player_handler.tscn" id="1_h8v78"]
+[ext_resource type="PackedScene" uid="uid://c3dud0k1g4v63" path="res://Scenes/level_6.tscn" id="2_rlr58"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="3_nf0cl"]
 [ext_resource type="PackedScene" uid="uid://dgby0w32rm260" path="res://Entities/stove/stove.tscn" id="4_ctnpx"]
 [ext_resource type="PackedScene" uid="uid://dv4u2xr5su03p" path="res://Entities/knife/knife.tscn" id="5_rt5n3"]
