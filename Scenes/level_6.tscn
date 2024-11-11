@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=4 uid="uid://ba6uxdpl8i4ko"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player_handler.tscn" id="1_je28b"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/victory.tscn" id="2_6unw3"]
-[ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="2_gmm8q"]
+[ext_resource type="PackedScene" uid="uid://dt8mhf2sf75k6" path="res://Scenes/Levels/victory.tscn" id="2_6unw3"]
+[ext_resource type="PackedScene" uid="uid://dllbyxnnlwp31" path="res://tile_map_layer.tscn" id="2_gmm8q"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="3_8ytxg"]
 [ext_resource type="PackedScene" uid="uid://b6w105gstt4do" path="res://Entities/PizzaCutter/PizzaCutter.tscn" id="4_86h5y"]
 [ext_resource type="PackedScene" uid="uid://b4ex8w10kfd5" path="res://Entities/Sauce/wsauce.tscn" id="5_g6jb2"]
@@ -15,7 +15,7 @@
 [node name="Level_6" type="Node2D"]
 
 [node name="PlayerHandler" parent="." instance=ExtResource("1_je28b")]
-position = Vector2(-396, 210)
+position = Vector2(-393, 210)
 next_level = ExtResource("2_6unw3")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_gmm8q")]
