@@ -9,7 +9,7 @@ func Enter() -> void:
 	player.can_wall = true
 	player.sauce_count = 0
 	
-	var game = player.get_parent()
+	var game = $"."
 	for child in game.get_children():
 		if(child.has_method("reactivate_sauce")):
 			child.reactivate_sauce()

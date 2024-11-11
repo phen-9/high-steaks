@@ -21,4 +21,5 @@ func Physics_Update(_delta : float):
 	bloop -= _delta
 	if(bloop <= 0):
 		print("Player removed")
+		player.emit_signal("death")
 		player.queue_free()

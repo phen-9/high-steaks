@@ -9,3 +9,13 @@ res://Entities/knife/knife.tscn
 res://Entities/knife/wait.gd
 res://Entities/knife/murder.gd
 res://Entities/knife/return.gd
+res://Entities/fork/fork.tscn
+res://Entities/fork/wait.gd
+res://Entities/fork/fork.gd
+res://Entities/fork/murder.gd
+res://Entities/fork/return.gd
+res://Scenes/player_handler.tscn
+res://Entities/player/player.gd
+res://Scenes/player_handler.gd
+res://Entities/player/dead.gd
+res://Entities/player/on_ground.gd

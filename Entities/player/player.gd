@@ -20,15 +20,17 @@ var sauce_count := 0
 
 @export var sauce_sfx : AudioStreamPlayer2D
 
+signal death
+
 
 var input_velocity : Vector2
 var instant_velocity : Vector2
 @onready var state_machine = $StateMachine
+@onready var handler = $".."
 
 var can_wall := true
 
 func _ready() -> void:
-	
 	pass
 
 func _process(delta: float) -> void:
