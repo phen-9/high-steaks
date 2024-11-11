@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv4u2xr5su03p"]
+[gd_scene load_steps=11 format=3 uid="uid://dv4u2xr5su03p"]
 
 [ext_resource type="Texture2D" uid="uid://0gk82guw3hyn" path="res://Assets/KnifeObstacle.png" id="1_0svaq"]
 [ext_resource type="Script" path="res://Entities/knife/knife.gd" id="1_oyfhx"]
 [ext_resource type="Script" path="res://Resources/Hitbox.gd" id="2_fhxiu"]
-[ext_resource type="Script" path="res://Resources/state-machine.gd" id="3_t3n3h"]
-[ext_resource type="Script" path="res://Resources/state.gd" id="5_i1ql4"]
+[ext_resource type="Script" path="res://Resources/state-machine.gd" id="4_wubqn"]
+[ext_resource type="Script" path="res://Entities/knife/wait.gd" id="5_2riam"]
+[ext_resource type="Script" path="res://Entities/knife/murder.gd" id="6_f8v1j"]
+[ext_resource type="Script" path="res://Entities/knife/return.gd" id="7_iioeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2m8"]
+size = Vector2(38, 182)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gefxa"]
 size = Vector2(63.5, 4)
@@ -12,34 +17,53 @@ size = Vector2(63.5, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6il8x"]
 size = Vector2(38, 2)
 
-[node name="Knife" type="CharacterBody2D"]
-motion_mode = 1
+[node name="Knife" type="Node2D"]
 script = ExtResource("1_oyfhx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SearchArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchArea"]
+position = Vector2(13, 94)
+shape = SubResource("RectangleShape2D_sa2m8")
+
+[node name="KnifeBody" type="CharacterBody2D" parent="."]
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="KnifeBody"]
 texture = ExtResource("1_0svaq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeBody"]
 position = Vector2(0.25, -1)
 shape = SubResource("RectangleShape2D_gefxa")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="KnifeHitbox" type="Area2D" parent="KnifeBody"]
 script = ExtResource("2_fhxiu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeBody/KnifeHitbox"]
 position = Vector2(13, 2)
 shape = SubResource("RectangleShape2D_6il8x")
 debug_color = Color(0.967938, 0, 0.471078, 0.42)
 
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReturnTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_t3n3h")
-initial_state = NodePath("Search")
+script = ExtResource("4_wubqn")
+initial_state = NodePath("wait")
 
-[node name="Search" type="Node" parent="StateMachine"]
-script = ExtResource("5_i1ql4")
+[node name="wait" type="Node" parent="StateMachine"]
+script = ExtResource("5_2riam")
 
-[node name="Follow" type="Node" parent="StateMachine"]
-script = ExtResource("5_i1ql4")
+[node name="murder" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("6_f8v1j")
+sprite = NodePath("../../KnifeBody/Sprite2D")
 
-[node name="Murder" type="Node" parent="StateMachine"]
-script = ExtResource("5_i1ql4")
+[node name="return" type="Node" parent="StateMachine"]
+script = ExtResource("7_iioeg")
+
+[connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
+[connection signal="body_entered" from="SearchArea" to="StateMachine/wait" method="_on_search_area_body_entered"]

@@ -1,11 +1,11 @@
 res://Entities/player/player.tscn
+res://Entities/knife/knife.gd
 res://Entities/Sauce/wsauce.tscn
 res://Scenes/pause_menu.tscn
 res://Scenes/game.tscn
-res://Scenes/level.tscn
 res://Entities/stove/stove.tscn
-res://Entities/stove/stove.gd
-res://glob_vars.gd
-res://Entities/player/player.gd
-res://Entities/player/state_machine.gd
-res://Entities/player/dead.gd
+res://Entities/stove/hitbox.tscn
+res://Entities/knife/knife.tscn
+res://Entities/knife/wait.gd
+res://Entities/knife/murder.gd
+res://Entities/knife/return.gd

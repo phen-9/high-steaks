@@ -1,19 +1,20 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var follow_speed := 30
-@onready var state_machine = $StateMachine
+@onready var knife_body = $KnifeBody
+@onready var sprite = $KnifeBody/Sprite2D
+@onready var search_area = $SearchArea
+@onready var timer = $Timer
+@onready var return_timer = $ReturnTimer
 
-var follow_area
-var start_position
+# 0 for wait, 1 for murder, 2 for return
+var return_y
 
 func _ready():
-	start_position = global_position
-	for i in get_child_count():
-		var child = get_child(i)
-		if(child.is_class("Area2D")):
-			print("FOLLOW AREA FOUND")
-			follow_area = child
+	return_y = knife_body.global_position.y
+	
+func _process(delta : float):
+	pass
 
 func _physics_process(_delta : float):
-	move_and_slide()
-	pass
+	knife_body.move_and_slide()
