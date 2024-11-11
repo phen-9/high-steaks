@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://ba6uxdpl8i4ko"]
+[gd_scene load_steps=9 format=4 uid="uid://d3gvgcf3wb6jd"]
 
-[ext_resource type="PackedScene" path="res://Scenes/player_handler.tscn" id="1_je28b"]
+[ext_resource type="PackedScene" uid="uid://davgjidb7u8gr" path="res://Scenes/player_handler.tscn" id="1_je28b"]
 [ext_resource type="PackedScene" uid="uid://ckbmw1d84ukgr" path="res://tile_map_layer.tscn" id="2_gmm8q"]
 [ext_resource type="PackedScene" uid="uid://b6eduomrd047l" path="res://Scenes/pause_menu.tscn" id="3_8ytxg"]
 [ext_resource type="PackedScene" uid="uid://b6w105gstt4do" path="res://Entities/PizzaCutter/PizzaCutter.tscn" id="4_86h5y"]
